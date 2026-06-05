@@ -1,0 +1,16 @@
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+env/
+.env
+
+# Banco de dados local (normalmente não se envia para o GitHub por segurança)
+db.sqlite3
+
+# Arquivos de sistema do Windows/Mac
+.DS_Store
+Thumbs.db

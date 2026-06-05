@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrinho - Loja de Suplementos</title>
+</head>
+<body>
+    <h2>Meu Carrinho (Pedido #{{ pedido.id }})</h2>
+    <p>Bem-vindo, {{ request.user.username }}! | <a href="{% url 'logout' %}">Sair</a></p>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <h3>Itens no Carrinho:</h3>
+    <ul>
+    {% for item in itens %}
+        <li>
+            {{ item.produto.nome }} - Quantidade: {{ item.quantidade }} - Preço: R$ {{ item.preco }}
+            <form method="POST" action="{% url 'quantidade' %}" style="display:inline;">
+                <input type="hidden" name="produto_id" value="{{ item.produto.id }}">
+                <input type="number" name="quantidade" value="{{ item.quantidade }}" min="0">
+                <button type="submit">Atualizar</button>
+            </form>
+        </li>
+    {% empty %}
+        <li>Seu carrinho está vazio.</li>
+    {% endfor %}
+    </ul>
+
+    <hr>
+    <h3>Adicionar Produtos ao Carrinho:</h3>
+    <ul>
+    {% for produto in produtos %}
+        <li>
+            {{ produto.nome }} (R$ {{ produto.preco }})
+            <form method="POST" action="{% url 'quantidade' %}" style="display:inline;">
+                <input type="hidden" name="produto_id" value="{{ produto.id }}">
+                <input type="hidden" name="quantidade" value="1">
+                <button type="submit">Adicionar 1 un</button>
+            </form>
+        </li>
+    {% empty %}
+        <li>Nenhum produto cadastrado no sistema ainda.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -3,6 +3,25 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .models import Cliente, Produto, Pedido, ItemPedido
+from django.shortcuts import redirect
+
+# --- VIEWS DE NAVEGAÇÃO (Front-End) ---
+
+def home_view(request):
+    """Renderiza a página inicial (Home)"""
+    return render(request, 'loja/home.html')
+
+def produtos_view(request):
+    """Renderiza a vitrine de produtos"""
+    produtos = Produto.objects.filter(ativo=True)
+    return render(request, 'loja/produtos.html', {'produtos': produtos})
+
+def detalhe_view(request, produto_id):
+    """Renderiza a página de detalhes de um produto específico"""
+    produto = get_object_or_404(Produto, id=produto_id)
+    return render(request, 'loja/detalhe.html', {'produto': produto})
+
+# --- VIEWS DE AUTENTICAÇÃO ---
 
 @csrf_exempt
 def cadastro_view(request):
@@ -28,7 +47,8 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('quantidade')
+            # Redirecionamento correto para a Home
+            return redirect('home') 
         else:
             return render(request, 'loja/login.html', {'error': 'Credenciais inválidas'})
     return render(request, 'loja/login.html')
@@ -37,8 +57,11 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
+# --- VIEW DE LÓGICA DO CARRINHO ---
+
 @csrf_exempt
 def quantidade_view(request):
+    """View focada estritamente na lógica do carrinho"""
     if not request.user.is_authenticated:
         return redirect('login')
         
@@ -67,9 +90,16 @@ def quantidade_view(request):
                 item.quantidade = quantidade
                 item.save()
                 
-        return redirect('quantidade')
+        return redirect('carrinho')
         
     itens = ItemPedido.objects.filter(pedido=pedido)
-    # Todos os produtos para podermos adicionar ao carrinho na tela
-    produtos = Produto.objects.filter(ativo=True)
-    return render(request, 'loja/carrinho.html', {'pedido': pedido, 'itens': itens, 'produtos': produtos})
+    return render(request, 'loja/carrinho.html', {'pedido': pedido, 'itens': itens})
+
+
+def adicionar_ao_carrinho(request):
+    if request.method == 'POST':
+        produto_id = request.POST.get('produto_id')
+        # AQUI VOCÊ COLOCA A LÓGICA DE SALVAR NA SESSÃO OU BANCO
+        # Exemplo básico: print(f"Produto {produto_id} adicionado!")
+        return redirect('carrinho') # Ou a página que você desejar
+    return redirect('produtos')

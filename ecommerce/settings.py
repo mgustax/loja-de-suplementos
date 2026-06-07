@@ -115,7 +115,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
+# Buscadores essenciais para mapear e carregar a pasta static da sua 'loja' automaticamente
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
+# Configurações de uploads de mídia (Imagens de Produtos)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuração padrão para os campos de chave primária (Sume com os WARNINGS do terminal)
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Redireciona o usuário para a página Home após o login de sucesso
+LOGIN_REDIRECT_URL = 'home'

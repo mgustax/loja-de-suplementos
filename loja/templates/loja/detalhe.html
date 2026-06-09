@@ -8,15 +8,19 @@
     <div class="card bg-dark bg-opacity-25 border border-secondary border-opacity-10 rounded-4 p-4 shadow">
         <div class="row g-4 align-items-center">
             
-            <div class="col-md-5 text-center p-4">
-                {% if produto.imagem %}
-                    <img src="{{ produto.imagem.url }}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
-                {% else %}
-                    <div class="bg-black bg-opacity-50 rounded-4 d-flex align-items-center justify-content-center" style="height: 300px;">
-                        <span class="text-white">Sem Imagem</span>
-                    </div>
-                {% endif %}
-            </div>
+           <div class="col-md-5 text-center p-4">
+    {% if produto.id == 1 %}
+        <img src="{% static 'loja/img_design/imagem_2026-06-02_145202215.png' %}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
+    {% elif produto.id == 2 %}
+        <img src="{% static 'loja/img_design/imagem_2026-06-02_145346176.png' %}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
+    {% elif produto.id == 3 %}
+        <img src="{% static 'loja/img_design/imagem_2026-06-02_145533738.png' %}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
+    {% else %}
+        <div class="bg-black bg-opacity-50 rounded-4 d-flex align-items-center justify-content-center" style="height: 300px;">
+            <span class="text-white">Sem Imagem</span>
+        </div>
+    {% endif %}
+</div>
 
             <div class="col-md-7 text-white">
                 <span class="badge mb-2 px-3 py-1 text-uppercase" style="background-color: #BD0110; font-size: 0.75rem;">Em Estoque</span>

@@ -1,0 +1,45 @@
+### Testes da API da Loja
+# Para usar este arquivo, instale a extensão "REST Client" no seu VS Code.
+# Depois de instalada, um botão "Send Request" vai aparecer acima de cada link.
+
+# Defina a URL base do seu servidor
+@baseUrl = http://127.0.0.1:8000
+
+### 1. Criar um Usuário (Cadastro)
+POST {{baseUrl}}/api/cadastro/
+Content-Type: application/json
+
+{
+    "username": "raylanne212",
+    "password": "raylanne157",
+    "email": "raylanne123@email.com"
+}
+
+### 2. Fazer Login
+# Ao fazer login, o Django vai retornar um Cookie de sessão que o VS Code salva automaticamente
+POST {{baseUrl}}/api/login/
+Content-Type: application/json
+
+{
+    "username": "raylanne212",
+    "password": "raylanne157"
+}
+
+### 3. Ver Itens do Carrinho
+# Lembre-se de rodar o Login (acima) primeiro para ter permissão!
+GET {{baseUrl}}/api/carrinho/
+Content-Type: application/json
+
+### 4. Adicionar um Produto ao Carrinho
+# Altere o "produto_id" para um ID que exista no seu banco de dados
+POST {{baseUrl}}/api/carrinho/
+Content-Type: application/json
+
+{
+    "produto_id": 1,
+    "quantidade": 2
+}
+
+### 5. Fazer Logout
+POST {{baseUrl}}/api/logout/
+Content-Type: application/json

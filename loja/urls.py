@@ -3,6 +3,7 @@ from . import views
 
 
 urlpatterns = [
+<<<<<<< HEAD
     # Mapeando para as views corretas que organizamos
     path('', views.home_view, name='home'),             # Vamos precisar criar a home_view simples
     path('produtos/', views.produtos_view, name='produtos'), 
@@ -21,3 +22,10 @@ urlpatterns = [
     path('adicionar-ao-carrinho/', views.adicionar_ao_carrinho, name='adicionar_ao_carrinho'),
 
 ]
+=======
+    path('api/cadastro/', views.cadastro_view, name='api_cadastro'),
+    path('api/login/', views.login_view, name='api_login'),
+    path('api/logout/', views.logout_view, name='api_logout'),
+    path('api/carrinho/', views.quantidade_view, name='api_carrinho'),
+]
+>>>>>>> main

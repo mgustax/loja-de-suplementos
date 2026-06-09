@@ -1,0 +1,129 @@
+{% extends 'loja/base.html' %}
+{% load static %}
+
+{% block title %}Nossos Suplementos - MonsterSups{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-black text-white py-5 flex-grow-1" style="min-height: 80vh;">
+    <div class="container">
+        
+        <div class="d-flex align-items-center gap-2 mb-5 pb-2 border-bottom border-dark">
+            <i class="bi bi-fire fs-2 text-danger" style="color: #BD0110 !important;"></i>
+            <h2 class="fw-bold text-uppercase m-0" style="font-family: 'Impact', sans-serif; letter-spacing: 1.5px;">
+                Catálogo de Monstros
+            </h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            
+            <div class="col">
+                <div class="card h-100 bg-dark bg-opacity-40 text-white border border-secondary border-opacity-10 rounded-4 overflow-hidden shadow-sm product-card">
+                    <div class="p-4 bg-black bg-opacity-30 d-flex align-items-center justify-content-center position-relative" style="height: 220px;">
+                        <span class="badge position-absolute top-0 start-0 m-3 bg-danger text-uppercase fw-bold" style="font-size: 0.65rem; background-color: #BD0110 !important;">Destaque</span>
+                        <img src="{% static 'loja/img_design/imagem_2026-06-02_145202215.png' %}" alt="Whey Growth" class="img-fluid object-fit-contain h-100 style-prod-img">
+                    </div> <div class="card-body d-flex flex-column p-3">
+                        <span class="text-muted text-uppercase fw-semibold mb-1" style="font-size: 0.7rem;">Growth Supplements</span>
+                        <h6 class="card-title fw-bold text-uppercase mb-2 text-white" style="font-size: 0.95rem;">Whey Protein Concentrado 1kg</h6>
+                        <div class="mt-auto">
+                            <p class="card-text fw-bold fs-5 mb-3 text-white">R$ <span style="color: #28a745;">154,90</span></p>
+                            <div class="d-flex gap-2">
+                                <a href="/produto/1/" class="btn btn-sm btn-outline-light fw-bold flex-grow-1 rounded-3 py-2.5 transition-btn" style="border-color: #444;">DETALHES</a>
+                                <form action="{% url 'adicionar_ao_carrinho' %}" method="POST" class="flex-grow-1">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="produto_id" value="1">
+                                    <button type="submit" class="btn btn-sm text-white fw-bold w-100 rounded-3 py-2.5 transition-btn" style="background-color: #BD0110;">
+                                        <i class="bi bi-cart-plus-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-dark bg-opacity-40 text-white border border-secondary border-opacity-10 rounded-4 overflow-hidden shadow-sm product-card">
+                    <div class="p-4 bg-black bg-opacity-30 d-flex align-items-center justify-content-center" style="height: 220px;">
+                        <img src="{% static 'loja/img_design/imagem_2026-06-02_145346176.png' %}" alt="Creatina Max Titanium" class="img-fluid object-fit-contain h-100 style-prod-img">
+                    </div>
+                    <div class="card-body d-flex flex-column p-3">
+                        <span class="text-muted text-uppercase fw-semibold mb-1" style="font-size: 0.7rem;">Max Titanium</span>
+                        <h6 class="card-title fw-bold text-uppercase mb-2 text-white" style="font-size: 0.95rem;">Creatina Monohidratada 250g</h6>
+                        <div class="mt-auto">
+                            <p class="card-text fw-bold fs-5 mb-3 text-white">R$ <span style="color: #28a745;">56,02</span></p>
+                            <div class="d-flex gap-2">
+                                <a href="/produto/2/" class="btn btn-sm btn-outline-light fw-bold flex-grow-1 rounded-3 py-2.5 transition-btn" style="border-color: #444;">DETALHES</a>
+                                <form action="{% url 'adicionar_ao_carrinho' %}" method="POST" class="flex-grow-1">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="produto_id" value="2">
+                                    <button type="submit" class="btn btn-sm text-white fw-bold w-100 rounded-3 py-2.5 transition-btn" style="background-color: #BD0110;">
+                                        <i class="bi bi-cart-plus-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-dark bg-opacity-40 text-white border border-secondary border-opacity-10 rounded-4 overflow-hidden shadow-sm product-card">
+                    <div class="p-4 bg-black bg-opacity-30 d-flex align-items-center justify-content-center position-relative" style="height: 220px;">
+                        <span class="badge position-absolute top-0 start-0 m-3 bg-warning text-dark fw-black" style="font-size: 0.65rem;">Hardcore</span>
+                        <img src="{% static 'loja/img_design/imagem_2026-06-02_145533738.png' %}" alt="Pré-Treino Haze" class="img-fluid object-fit-contain h-100 style-prod-img">
+                    </div>
+                    <div class="card-body d-flex flex-column p-3">
+                        <span class="text-muted text-uppercase fw-semibold mb-1" style="font-size: 0.7rem;">Growth Supplements</span>
+                        <h6 class="card-title fw-bold text-uppercase mb-2 text-white" style="font-size: 0.95rem;">Haze Pré-Treino 300g</h6>
+                        <div class="mt-auto">
+                            <p class="card-text fw-bold fs-5 mb-3 text-white">R$ <span style="color: #28a745;">79,90</span></p>
+                            <div class="d-flex gap-2">
+                                <a href="/produto/3/" class="btn btn-sm btn-outline-light fw-bold flex-grow-1 rounded-3 py-2.5 transition-btn" style="border-color: #444;">DETALHES</a>
+                                <form action="{% url 'adicionar_ao_carrinho' %}" method="POST" class="flex-grow-1">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="produto_id" value="3">
+                                    <button type="submit" class="btn btn-sm text-white fw-bold w-100 rounded-3 py-2.5 transition-btn" style="background-color: #BD0110;">
+                                        <i class="bi bi-cart-plus-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Faz o card saltar e adiciona sombra suave ao passar o mouse */
+    .product-card { 
+        transition: transform 0.25s ease, box-shadow 0.25s ease; 
+    }
+    .product-card:hover { 
+        transform: translateY(-5px); /* Efeito de saltar */
+        box-shadow: 0 8px 25px rgba(189, 1, 16, 0.15) !important; /* Sombra vermelha suave */
+    }
+
+    /* Adiciona sombra e animação de zoom/rotação na foto do produto */
+    .style-prod-img { 
+        filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.6)); /* Sombra na imagem */
+        transition: transform 0.3s ease; 
+    }
+    
+    /* Efeito de zoom e leve rotação na imagem ao passar o mouse no CARD */
+    .product-card:hover .style-prod-img { 
+        transform: scale(1.06) rotate(1deg); /* Zoom e rotação */
+    }
+
+    /* Animação suave para os botões */
+    .transition-btn { 
+        transition: all 0.2s ease; 
+    }
+    .transition-btn:hover { 
+        background-color: #a0010d !important; /* Vermelho mais escuro no hover */
+        border-color: #a0010d !important; 
+    }
+</style>
+{% endblock %}

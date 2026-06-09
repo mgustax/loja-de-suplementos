@@ -1,0 +1,109 @@
+{% extends 'loja/base.html' %}
+{% load static %}
+
+{% block title %}Home - MonsterSups{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-0 bg-black text-white flex-grow-1 d-flex flex-column">
+    
+    <div class="position-relative w-100 d-flex align-items-center justify-content-center text-center py-5 px-3" 
+         style="background: url('{% static 'loja/img_design/treino.png' %}') center/cover no-repeat; min-height: 450px;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(20, 0, 0, 0.82);"></div>
+        
+        <div class="position-relative z-1 text-center px-2" style="max-width: 800px;">
+            <h1 class="display-4 fw-black text-uppercase tracking-wider mb-3" style="font-family: 'Impact', 'Arial Black', sans-serif; letter-spacing: 2px;">
+                Evolua seu Treino <br><span style="color: #BD0110;">Mude seu Shape</span>
+            </h1>
+            <p class="text-white fw-medium mb-4" 
+               style="color: #ffffff !important; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); font-size: 1.1rem; opacity: 0.9;">
+               A linha de suplementação mais pesada do mercado para quem busca performance real e resultados brutais.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="{% url 'produtos' %}" class="btn text-white fw-bold px-4 py-2.5 text-uppercase shadow" style="background-color: #BD0110; border-radius: 8px; letter-spacing: 0.5px;">
+                    Ver Suplementos <i class="bi bi-lightning-charge-fill ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="p-4 rounded-4 bg-dark bg-opacity-25 h-100 border border-secondary border-opacity-10 transition-hover">
+                    <div class="d-inline-flex p-3 rounded-circle bg-danger bg-opacity-10 text-danger mb-3">
+                        <i class="bi bi-shield-check fs-2" style="color: #BD0110;"></i>
+                    </div>
+                    <h5 class="fw-bold text-uppercase">Qualidade Premium</h5>
+                    <p class="text-white fw-light mb-0" style="color: #ffffff !important; font-size: 0.85rem; line-height: 1.5; opacity: 0.85;">
+                        Matéria-prima importada e com os maiores laudos de pureza do mercado nacional.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 rounded-4 bg-dark bg-opacity-25 h-100 border border-secondary border-opacity-10 transition-hover">
+                    <div class="d-inline-flex p-3 rounded-circle bg-danger bg-opacity-10 text-danger mb-3">
+                        <i class="bi bi-truck fs-2" style="color: #BD0110;"></i>
+                    </div>
+                    <h5 class="fw-bold text-uppercase">Envio Ultra Rápido</h5>
+                    <p class="text-white fw-light mb-0" style="color: #ffffff !important; font-size: 0.85rem; line-height: 1.5; opacity: 0.85;">
+                        Pedidos despachados em até 24 horas com frete grátis para compras em combo.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 rounded-4 bg-dark bg-opacity-25 h-100 border border-secondary border-opacity-10 transition-hover">
+                    <div class="d-inline-flex p-3 rounded-circle bg-danger bg-opacity-10 text-danger mb-3">
+                        <i class="bi bi-fire fs-2" style="color: #BD0110;"></i>
+                    </div>
+                    <h5 class="fw-bold text-uppercase">Resultados Extremos</h5>
+                    <p class="text-white fw-light mb-0" style="color: #ffffff !important; font-size: 0.85rem; line-height: 1.5; opacity: 0.85;">
+                        Fórmulas concentradas desenvolvidas para quebrar seus recordes de carga.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="text-white text-uppercase fw-bold" style="letter-spacing: 2px;">O que dizem os Monstros</h2>
+            <div class="mx-auto bg-danger" style="width: 60px; height: 3px; background-color: #BD0110 !important;"></div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card bg-dark bg-opacity-25 border border-secondary border-opacity-10 text-white p-4 h-100 rounded-4">
+                    <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="mb-4 fst-italic opacity-75">"O Whey Growth é o melhor, bati meu recorde de carga em 1 semana! Entrega ultra rápida."</p>
+                    <div class="mt-auto d-flex align-items-center">
+                        <div class="bg-secondary rounded-circle me-3" style="width: 40px; height: 40px;"></div>
+                        <span class="fw-bold">Carlos M.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark bg-opacity-25 border border-secondary border-opacity-10 text-white p-4 h-100 rounded-4">
+                    <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="mb-4 fst-italic opacity-75">"Creatina de altíssima pureza. A MonsterSups realmente entrega o que promete no laudo."</p>
+                    <div class="mt-auto d-flex align-items-center">
+                        <div class="bg-secondary rounded-circle me-3" style="width: 40px; height: 40px;"></div>
+                        <span class="fw-bold">Fernanda S.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark bg-opacity-25 border border-secondary border-opacity-10 text-white p-4 h-100 rounded-4">
+                    <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="mb-4 fst-italic opacity-75">"Comprei o combo de pré-treino e não me arrependo. Foco insano nos treinos de perna!"</p>
+                    <div class="mt-auto d-flex align-items-center">
+                        <div class="bg-secondary rounded-circle me-3" style="width: 40px; height: 40px;"></div>
+                        <span class="fw-bold">Ricardo A.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .transition-hover { transition: transform 0.3s ease, border-color 0.3s ease; }
+    .transition-hover:hover { transform: translateY(-5px); border-color: rgba(189, 1, 16, 0.4) !important; }
+</style>
+{% endblock %}

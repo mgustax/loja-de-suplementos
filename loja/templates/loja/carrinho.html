@@ -1,0 +1,74 @@
+{% extends 'loja/base.html' %}
+{% load static %}
+
+{% block title %}Carrinho - MonsterSups{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-black text-white py-5 flex-grow-1" style="min-height: 80vh;">
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom border-dark">
+                    <i class="bi bi-cart3 fs-3 text-danger" style="color: #BD0110 !important;"></i>
+                    <h3 class="fw-bold text-uppercase m-0" style="font-family: 'Impact', sans-serif; letter-spacing: 1px;">
+                        Seu Carrinho
+                    </h3>
+                </div>
+
+                {% for item in itens_carrinho %}
+                    <div class="card bg-dark bg-opacity-40 border border-secondary border-opacity-25 rounded-4 p-3 mb-3 text-white">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <img src="{{ item.produto.imagem.url }}" class="img-fluid rounded" alt="{{ item.produto.nome }}">
+                            </div>
+                            <div class="col-7">
+                                <h6 class="fw-bold text-uppercase mb-0">{{ item.produto.nome }}</h6>
+                                <small class="text-muted">Quantidade: {{ item.quantidade }}</small>
+                            </div>
+                            <div class="col-3 text-end">
+                                <span class="text-success fw-bold">R$ {{ item.preco_total }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="text-center py-5 my-5 bg-dark bg-opacity-10 rounded-4 border border-secondary border-opacity-10">
+                        <div class="fs-1 mb-2 text-secondary opacity-50"><i class="bi bi-basket2"></i></div>
+                        <p class="text-muted">Seu carrinho está vazio.</p>
+                        <a href="{% url 'produtos' %}" class="btn btn-outline-danger mt-2">Escolher Monstros</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card bg-dark bg-opacity-25 border border-secondary border-opacity-10 rounded-4 p-4 sticky-top shadow" style="top: 20px;">
+                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom border-secondary border-opacity-25">
+                        <h5 class="fw-bold text-uppercase m-0 text-white-50" style="font-size: 1.1rem;">
+                            Resumo do Pedido
+                        </h5>
+                    </div>
+
+                    <div class="border-top border-secondary border-opacity-25 pt-3 mt-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-white fw-bold">Total Brutal</span>
+                            <span class="fw-bold fs-5 text-success">R$ {{ total_geral }}</span>
+                        </div>
+                        
+                        <button class="btn w-100 text-white fw-black text-uppercase py-2.5 rounded-3 shadow-sm d-flex align-items-center justify-content-center gap-2 transition-btn" 
+                                style="background-color: #BD0110; letter-spacing: 0.5px;">
+                            Finalizar Pedido <i class="bi bi-arrow-right-short fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .sticky-top { top: 20px; }
+    .transition-btn { transition: background-color 0.2s ease, transform 0.1s ease; }
+    .transition-btn:hover { background-color: #a0010d !important; }
+</style>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'loja/base.html' %}
+{% load static %}
+
+{% block title %}{{ produto.nome }} - MonsterSups{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card bg-dark bg-opacity-25 border border-secondary border-opacity-10 rounded-4 p-4 shadow">
+        <div class="row g-4 align-items-center">
+            
+           <div class="col-md-5 text-center p-4">
+    {% if produto.id == 1 %}
+        <img src="{% static 'loja/img_design/imagem_2026-06-02_145202215.png' %}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
+    {% elif produto.id == 2 %}
+        <img src="{% static 'loja/img_design/imagem_2026-06-02_145346176.png' %}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
+    {% elif produto.id == 3 %}
+        <img src="{% static 'loja/img_design/imagem_2026-06-02_145533738.png' %}" class="img-fluid rounded-4" style="max-height: 350px;" alt="{{ produto.nome }}">
+    {% else %}
+        <div class="bg-black bg-opacity-50 rounded-4 d-flex align-items-center justify-content-center" style="height: 300px;">
+            <span class="text-white">Sem Imagem</span>
+        </div>
+    {% endif %}
+</div>
+
+            <div class="col-md-7 text-white">
+                <span class="badge mb-2 px-3 py-1 text-uppercase" style="background-color: #BD0110; font-size: 0.75rem;">Em Estoque</span>
+                <h1 class="fw-black text-uppercase" style="font-family: 'Impact', sans-serif;">{{ produto.nome }}</h1>
+                <p class="opacity-75 mb-4">{{ produto.descricao|default:"A fórmula mais pesada do mercado para quem não aceita menos que o topo." }}</p>
+                
+                <div class="bg-black bg-opacity-40 p-4 rounded-4 mb-4 border border-secondary border-opacity-25">
+                    <small class="text-muted d-block">Preço exclusivo</small>
+                    <span class="fw-bold h2 mb-0" style="color: #28a745;">R$ {{ produto.preco }}</span>
+                </div>
+
+                <form method="POST" action="{% url 'carrinho' %}" class="d-flex gap-3 align-items-end">
+                    {% csrf_token %}
+                    <input type="hidden" name="produto_id" value="{{ produto.id }}">
+                    <div style="width: 120px;">
+                        <label class="form-label small fw-bold text-muted mb-1">Quantidade</label>
+                        <input type="number" name="quantidade" class="form-control bg-black text-white border-secondary" value="1" min="1">
+                    </div>
+                    <button type="submit" class="btn text-white fw-bold py-2 px-4 shadow" style="background-color: #BD0110;">
+                        <i class="bi bi-cart-plus-fill me-2"></i> ADICIONAR
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-5 border-top border-secondary border-opacity-25 pt-4">
+            <div class="col-12">
+                <h4 class="fw-bold text-uppercase mb-3">Informação Nutricional</h4>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped border border-secondary border-opacity-25">
+                        <thead class="table-dark">
+                            <tr style="color: #BD0110;">
+                                <th>Componente</th>
+                                <th>Porção</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Proteínas</td><td>24g</td></tr>
+                            <tr><td>Carboidratos</td><td>2g</td></tr>
+                            <tr><td>Gorduras</td><td>1g</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

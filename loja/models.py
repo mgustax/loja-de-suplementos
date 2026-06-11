@@ -22,9 +22,7 @@ class Produto(models.Model):
         on_delete=models.CASCADE
     )
 
-    nome = models.CharField(max_length=200)
-
-    slug = models.SlugField(unique=True)
+    nome = models.CharField(max_length=200) 
 
     descricao = models.TextField()
 

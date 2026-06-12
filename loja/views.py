@@ -15,8 +15,9 @@ def home_view(request):
 
 
 def produtos_view(request):
-    produtos = Produto.objects.filter(ativo=True)
-    return render(request, 'loja/produtos.html', {'produtos': produtos})
+    produtos = Produto.objects.all()
+    return render(request, 'loja/produtos.html', {
+        'produtos': produtos })
 
 
 def detalhe_view(request, produto_id):

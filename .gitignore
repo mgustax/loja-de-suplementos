@@ -7,6 +7,7 @@ __pycache__/
 venv/
 env/
 .env
+.venv
 
 # Banco de dados local (normalmente não se envia para o GitHub por segurança)
 db.sqlite3

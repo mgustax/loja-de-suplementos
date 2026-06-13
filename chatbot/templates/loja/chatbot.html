@@ -1,0 +1,43 @@
+{% load static %}
+
+<div id="chatbot-container">
+
+    <!-- botão flutuante -->
+    <button id="chatbot-button">
+        💪
+    </button>
+
+    <!-- janela do chat -->
+    <div id="chatbot-window">
+
+        <!-- aabeçalho -->
+        <div id="chatbot-header">
+            Marombilda 
+        </div>
+
+        <!-- mensagens -->
+        <div id="chatbot-messages">
+            <div class="bot-message">
+                Oi! Eu sou a Marombilda 💪. Como posso ajudar?
+            </div>
+        </div>
+
+        <!-- area de digitaçao -->
+        <div id="chatbot-input-area">
+            <input
+                type="text"
+                id="user-message"
+                placeholder="Digite sua mensagem..."
+            >
+
+            <button id="send-button">
+                Enviar
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+<script src="{% static 'js/chatbot.js' %}"></script>

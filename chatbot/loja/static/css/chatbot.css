@@ -1,0 +1,87 @@
+/* botao flutuante */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #ff7b00;
+    color: white;
+}
+
+/* janela do chat */
+#chatbot-window {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 320px;
+    height: 450px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+
+    display: none;
+
+    flex-direction: column;
+}
+
+/* cabecalho */
+#chatbot-header {
+    background-color: #ff7b00;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+}
+
+/* area das mensagens */
+#chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* mendagem da marombilda */
+.bot-message {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* area de digitacão */
+#chatbot-input-area {
+    display: flex;
+    padding: 10px;
+}
+
+/* caixa de texto */
+#user-message {
+    flex: 1;
+    padding: 10px;
+}
+
+/* botao enviar */
+#send-button {
+    margin-left: 10px;
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user-message {
+
+    background-color: #ff7b00;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+
+}
